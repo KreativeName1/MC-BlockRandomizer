@@ -1,0 +1,7 @@
+{
+  "key.blockrandomizer.toggle": "Toggle Block Randomizer",
+  "category.blockrandomizer": "Block Randomizer",
+  "message.blockrandomizer.enabled": "Enabled",
+  "message.blockrandomizer.disabled": "Disabled",
+  "message.blockrandomizer.title": "Block Randomizer"
+}

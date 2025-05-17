@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "blockrandomizer",
+  "version": "${version}",
+
+  "name": "BlockRandomizer",
+  "description": "A simple mmod that randomizes placement of blocks in the hotbar.",
+  "authors": [
+    "KreativeName"
+  ],
+  "contact": {
+    "github": "https://github.com/KreativeName1"
+  },
+
+  "license": "MIT",
+  "icon": "assets/blockrandomizer/icon.png",
+
+  "environment": "client",
+  "entrypoints": {
+    "fabric-datagen": ["org.KreativeName.blockrandomizer.client.BlockrandomizerDataGenerator"],
+    "client": ["org.KreativeName.blockrandomizer.client.BlockrandomizerClient"],
+    "main": ["org.KreativeName.blockrandomizer.Blockrandomizer"]
+  },
+
+  "mixins": [
+    "blockrandomizer.mixins.json"
+    ,{
+      "config": "blockrandomizer.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

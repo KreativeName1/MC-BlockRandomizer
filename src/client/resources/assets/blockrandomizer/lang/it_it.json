@@ -1,0 +1,7 @@
+{
+  "key.blockrandomizer.toggle": "Attiva/Disattiva Randomizzatore di Blocchi",
+  "category.blockrandomizer": "Randomizzatore di Blocchi",
+  "message.blockrandomizer.enabled": "Attivato",
+  "message.blockrandomizer.disabled": "Disattivato",
+  "message.blockrandomizer.title": "Randomizzatore di Blocchi"
+}
