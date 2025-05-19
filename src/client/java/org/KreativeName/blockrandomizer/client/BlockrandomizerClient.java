@@ -1,6 +1,5 @@
 package org.KreativeName.blockrandomizer.client;
 
-import com.mojang.authlib.minecraft.client.MinecraftClient;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
@@ -65,24 +64,23 @@ public class BlockrandomizerClient implements ClientModInitializer {
         HitResult hitResult = client.hitResult;
         boolean isLookingAtBlock = hitResult != null && hitResult.getType() == HitResult.Type.BLOCK;
 
-        if (wasRightClicking && !isRightClicking && wasHoldingBlockItem && isLookingAtBlock) {
-            randomizeHotbarSelection(player);
+        if (isLookingAtBlock && isHoldingBlockItem && isRightClicking) {
+            if (!wasRightClicking || random.nextFloat() < 0.2f) {
+                randomizeHotbarSelection(player);
+            }
         }
-
-        wasRightClicking = isRightClicking;
-        wasHoldingBlockItem = isHoldingBlockItem;
     }
 
     private void randomizeHotbarSelection(LocalPlayer player) {
         int hotbarSize = 9;
-        boolean isBlock = true;
+        boolean isNotBlock = true;
         int randomSlot = -1;
 
-        while (isBlock)
+        while (isNotBlock)
         {
             randomSlot = random.nextInt(hotbarSize);
             if (player.getInventory().getItem(randomSlot).getItem() instanceof BlockItem) {
-                isBlock = false;
+                isNotBlock = false;
             }
         }
 
